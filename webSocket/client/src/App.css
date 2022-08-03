@@ -1,0 +1,92 @@
+.link {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 16px;
+}
+li.item {
+  list-style: none;
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  margin: 10px;
+  border-left: 2px solid red;
+  font-weight: bold;
+  max-width: 300px;
+  border-radius: 5px;
+}
+.comment-form {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  font-weight: 400;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.reply {
+  padding: 5px 10px;
+  background-color: #fff;
+  margin: 10px 0;
+  max-width: 150px;
+  border-radius: 5px;
+  text-align: right;
+  cursor: pointer;
+}
+.form-group {
+  display: none;
+}
+.form-group.active {
+  display: block;
+}
+.input {
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 4px 6px;
+  border-radius: 5px;
+  margin-right: 0px;
+}
+.send {
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 4px 6px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.watch-more {
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+.form {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease;
+  display: none;
+}
+.form.show {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+.childcomment {
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 20px;
+  margin-left: 20px;
+}
