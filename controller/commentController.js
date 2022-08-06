@@ -8,7 +8,7 @@ const Like = db.likes;
 const { Op } = require("sequelize");
 
 exports.getAllComment = catchAsyncError(async (req, res, next) => {
-  const comments = await Comment.findAll();
+  const comments = await Comment.findAll({ order: [["id", "DESC"]] });
 
   res.status(200).json({
     success: true,
@@ -47,6 +47,7 @@ exports.getCommentOfPost = catchAsyncError(async (req, res, next) => {
   const id = req.params.postId;
 
   const comments = await Comment.findAll({
+    order: [["id", "DESC"]],
     include: [
       {
         model: User,

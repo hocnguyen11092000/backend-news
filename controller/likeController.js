@@ -13,16 +13,16 @@ exports.createLike = catchAsyncError(async (req, res, next) => {
   });
 
   if (!isLike) {
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
-      folder: "news/like",
-      width: 150,
-      crop: "scale",
-    });
+    // const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
+    //   folder: "news/like",
+    //   width: 150,
+    //   crop: "scale",
+    // });
 
     const newLike = {
       ...req.body,
-      image: myCloud.secure_url,
-      image_id: myCloud.public_id,
+      // image: myCloud.secure_url,
+      // image_id: myCloud.public_id,
     };
     const like = await Like.create(newLike);
 
@@ -35,7 +35,7 @@ exports.createLike = catchAsyncError(async (req, res, next) => {
 
   // có like rồi và trùng với cái cũ
   if (isLike && req.body.name === isLike.dataValues.name) {
-    await cloudinary.v2.uploader.destroy(isLike.image_id);
+    //await cloudinary.v2.uploader.destroy(isLike.image_id);
 
     await Like.destroy({
       where: {
@@ -48,7 +48,7 @@ exports.createLike = catchAsyncError(async (req, res, next) => {
       message: "unlike...",
     });
   } else {
-    await cloudinary.v2.uploader.destroy(isLike.image_id);
+    // await cloudinary.v2.uploader.destroy(isLike.image_id);
     // await Like.destroy({
     //   where: {
     //     user_id: req.body.user_id,
@@ -56,16 +56,16 @@ exports.createLike = catchAsyncError(async (req, res, next) => {
     //   },
     // });
 
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
-      folder: "news/like",
-      width: 150,
-      crop: "scale",
-    });
+    // const myCloud = await cloudinary.v2.uploader.upload(req.body.image, {
+    //   folder: "news/like",
+    //   width: 150,
+    //   crop: "scale",
+    // });
 
     const newLike = {
       ...req.body,
-      image: myCloud.secure_url,
-      image_id: myCloud.public_id,
+      // image: myCloud.secure_url,
+      // image_id: myCloud.public_id,
     };
 
     await Like.update(newLike, {
